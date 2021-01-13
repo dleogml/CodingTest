@@ -42,6 +42,7 @@ public class FileNameSort {
                     }
                 }
 
+                // head, number, tail로 나누는 과정
                 private String[] div(String str) {
                     String head = "";
                     String number = "";
