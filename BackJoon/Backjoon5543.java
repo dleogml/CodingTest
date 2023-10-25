@@ -1,29 +1,24 @@
-package coding;
+package BackJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
-//5명의 평균을 구하고 40미만은 무조건 40점으로 계산
-public class Backjoon10039 {
+// 햄버거 세개중 최소와 음료수 두개중 최소를 더해 세트할인으로 50을 뺌
+public class Backjoon5543 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
-        int x [] = new int [5];
-        int sum = 0;
+        int x [] = new int[5];
+        int a, b, c;
 
         for(int i=0; i<5; i++) {
             x[i] = Integer.parseInt(br.readLine());
-            if(x[i] < 40) {
-                x[i] = 40;
-            }
-            sum += x[i];
         }
+        a = Math.min(x[0], x[1]);
+        b = Math.min(a, x[2]);
+        c = Math.min(x[3], x[4]);
 
-
-        System.out.println(sum/5);
-
+        System.out.println(b + c - 50);
     }
 }
