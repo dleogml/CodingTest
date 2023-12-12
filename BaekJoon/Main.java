@@ -1,4 +1,4 @@
-package BackJoon;
+package BaekJoon;
 
 public class Main {
 

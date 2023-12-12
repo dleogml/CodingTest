@@ -1,11 +1,11 @@
-package BackJoon;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 //지그재그로 별도 찍고 그만큼 길이도 늘어남
-public class Backjoon10996 {
+public class Baekjoon10996 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

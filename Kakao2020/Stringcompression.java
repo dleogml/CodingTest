@@ -12,7 +12,7 @@ class Stringcompression {
                     int length = totalLength;
 
                     for (int index = 0; index + i <= totalLength;) {
-                        final Stringcompression word = s.substring(index, index + i);
+                        final String word = s.substring(index, index + i);
                         index += i;
 
                         final int cnt = findCountOfWordRepeated(s, word, index);
@@ -30,7 +30,7 @@ class Stringcompression {
                 .orElse(totalLength);
     }
 
-    protected int findCountOfWordRepeated(final Stringcompression text, final Stringcompression word, int begin) {
+    protected int findCountOfWordRepeated(final String text, final String word, int begin) {
         int count = 0;
         final int totalLength = text.length();
         final int unitLength = word.length();

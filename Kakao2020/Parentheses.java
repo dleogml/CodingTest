@@ -2,19 +2,33 @@ package Kakao2020;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
 // 괄호 변환
 public class Parentheses {
-    private final Map<Character, Integer> bracketMap = Map.of('(', 1, ')', -1);
-    private final Map<Character, Character> reverseMap = Map.of('(', ')', ')','(');
+    //private final Map<Character, Integer> bracketMap = Map.of('(', 1, ')', -1);
+    //private final Map<Character, Character> reverseMap = Map.of('(', ')', ')','(');
+    private final Map<Character, Integer> bracketMap = new HashMap<Character, Integer>() {
+        {
+            put('(', 1);
+            put(')', -1);
+        }
+    };
+
+    private final Map<Character, Character> reverseMap = new HashMap<Character, Character>() {
+        {
+            put('(', ')');
+            put(')', '(');
+        }
+    };
 
     public String parentheses(String p) {
-        if (p.isBlank()) {
-            return "";
-        }
+//        if (p.isBlank()) {
+//            return "";
+//        }
 
         final List<String> strings = partition(p);
 
@@ -69,4 +83,4 @@ public class Parentheses {
         return stringBuilder.toString();
     }
 }
-}
+

@@ -1,11 +1,11 @@
-package BackJoon;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 //점점 증가했다가 감소하는 별찍기
-public class Backjoon2523 {
+public class Baekjoon2523 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

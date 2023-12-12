@@ -1,11 +1,11 @@
-package BackJoon;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 //모래시계 모양으로 별찍기
-public class Backjoon2446 {
+public class Baekjoon2446 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
