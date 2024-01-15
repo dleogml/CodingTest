@@ -1,0 +1,71 @@
+package programmers.level1;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
+
+/*
+과일 장수가 사과 상자를 포장하고 있습니다. 사과는 상태에 따라 1점부터 k점까지의 점수로 분류하며,
+k점이 최상품의 사과이고 1점이 최하품의 사과입니다. 사과 한 상자의 가격은 다음과 같이 결정됩니다.
+- 한 상자에 사과를 m개씩 담아 포장합니다.
+- 상자에 담긴 사과 중 가장 낮은 점수가 p (1 ≤ p ≤ k)점인 경우, 사과 한 상자의 가격은 p * m 입니다.
+
+과일 장수가 가능한 많은 사과를 팔았을 때, 얻을 수 있는 최대 이익을 계산하고자 합니다.
+(사과는 상자 단위로만 판매하며, 남는 사과는 버립니다)
+
+예를 들어, k = 3, m = 4, 사과 7개의 점수가 [1, 2, 3, 1, 2, 3, 1]이라면, 다음과 같이 [2, 3, 2, 3]으로 구성된
+사과 상자 1개를 만들어 판매하여 최대 이익을 얻을 수 있습니다.
+
+(최저 사과 점수) x (한 상자에 담긴 사과 개수) x (상자의 개수) = 2 x 4 x 1 = 8
+사과의 최대 점수 k, 한 상자에 들어가는 사과의 수 m, 사과들의 점수 score가 주어졌을 때,
+과일 장수가 얻을 수 있는 최대 이익을 return하는 solution 함수를 완성해주세요.
+*/
+// 과일장수
+public class FruitSeller {
+    // 나의 풀이
+    // 결국 큰 점수를 가진 사과부터 내림차순으로 정렬한 뒤에
+    // 박스에 담을 사과갯수만큼 빼면서 점수를 계산하여 최대 이익 점수를 리턴
+    class Solution {
+        public int solution(int k, int m, int[] score) {
+            int answer = 0;
+            int boxCount = score.length / m;
+
+            PriorityQueue<Integer> list = new PriorityQueue<>(Collections.reverseOrder());
+
+            for(int i = 0; i < score.length; i++) {
+                list.add(score[i]);
+            }
+
+            while(boxCount > 0) {
+                int appleCount = m;
+                int min = k;
+                while(appleCount > 0) {
+                    min = Math.min(min, list.poll());
+                    appleCount--;
+                }
+                answer += min * m;
+                boxCount--;
+            }
+
+            return answer;
+        }
+    }
+    // 다른사람의 풀이
+    // 배열을 정렬하는 것까지는 생각했으나
+    // for문에서 i를 m만큼씩 빼는것, 사과에 담길 상자중에 가장 마지막 사과
+    // 즉, 한 상자에 담긴 사과중에 가장 점수가 낮은 사과를 score[i-m]으로 지정할 수 있는 것을 생각하지못했다
+    // 단순하고 직관적이며 좋은 솔루션이여서 가져왔다
+    class Solution2 {
+        public int solution(int k, int m, int[] score) {
+            int answer = 0;
+
+            Arrays.sort(score);
+
+            for(int i = score.length; i >= m; i -= m){
+                answer += score[i - m] * m;
+            }
+
+            return answer;
+        }
+    }
+}
